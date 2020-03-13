@@ -9,15 +9,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CollectionTestSuite {
+    private static int testCounter = 0;
+
+    private static List<Integer> numbers(int size) {
+        List<Integer> numbers = new ArrayList<>();
+
+        for (int i = 1; i <= size; i++) {
+            numbers.add(i);
+        }
+        return numbers;
+    }
 
     @Before
     public void before() {
-        System.out.println("Test Case: begin");
+        testCounter++;
+        System.out.println("Test Case#" + testCounter + " begin");
     }
 
     @After
     public void after() {
-        System.out.println("Test Case: end");
+        System.out.println("Test Case#" + testCounter + " end");
     }
 
     @Test
@@ -27,7 +38,6 @@ public class CollectionTestSuite {
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
         List<Integer> evensResult = oddNumbersExterminator.exterminate(numbers);
-        System.out.println("Testing " + evensResult);
         //Then
         Assert.assertTrue(evensResult.isEmpty());
     }
@@ -35,15 +45,9 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorNormalList() {
         //Given
-        List<Integer> numbers = new ArrayList<>();
-
-        for (int i = 1; i <= 20; i++) {
-            numbers.add(i);
-        }
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        List<Integer> evensResult = oddNumbersExterminator.exterminate(numbers);
-        System.out.println("Testing " + evensResult);
+        List<Integer> evensResult = oddNumbersExterminator.exterminate(numbers(20));
         //Then
         for (Integer evenNumber : evensResult) {
             Assert.assertTrue(evenNumber % 2 == 0);
