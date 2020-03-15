@@ -29,4 +29,9 @@ public class Circle implements Shape {
     public int hashCode() {
         return radius;
     }
+
+    @Override
+    public String toString() {
+        return getShapeName() + " has a field size equals: " + getField() + " ";
+    }
 }

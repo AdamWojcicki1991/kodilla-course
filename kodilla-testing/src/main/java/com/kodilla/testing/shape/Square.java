@@ -29,4 +29,9 @@ public class Square implements Shape {
     public int hashCode() {
         return side;
     }
+
+    @Override
+    public String toString() {
+        return getShapeName() + " has a field size equals: " + getField() + " ";
+    }
 }

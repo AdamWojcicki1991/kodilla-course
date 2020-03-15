@@ -28,7 +28,7 @@ public class ShapeCollector {
 
         for (Shape shape : shapes) {
 
-            showFigures += shape.getShapeName() + " has a field size equals: " + shape.getField();
+            showFigures += shape.toString();
         }
         return showFigures;
     }

@@ -68,11 +68,15 @@ public class ShapeCollectorTestSuite {
     public void testShowFigures() {
         //Given
         Square square = new Square(5);
+        Circle circle = new Circle(5);
+        Triangle triangle = new Triangle(5, 5);
         ShapeCollector shapeCollector = new ShapeCollector();
         shapeCollector.addFigure(square);
+        shapeCollector.addFigure(circle);
+        shapeCollector.addFigure(triangle);
         //When
         String shapes = shapeCollector.showFigures();
         //Then
-        Assert.assertEquals(square.getShapeName() + " has a field size equals: " + square.getField(), shapes);
+        Assert.assertEquals(square.toString() + circle.toString() + triangle.toString(), shapes);
     }
 }
