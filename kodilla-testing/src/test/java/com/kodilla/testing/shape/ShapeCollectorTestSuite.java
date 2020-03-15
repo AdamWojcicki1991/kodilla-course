@@ -2,8 +2,6 @@ package com.kodilla.testing.shape;
 
 import org.junit.*;
 
-import java.util.List;
-
 public class ShapeCollectorTestSuite {
     private static int testCounter = 0;
 
@@ -31,7 +29,7 @@ public class ShapeCollectorTestSuite {
         //When
         shapeCollector.addFigure(circle);
         //Then
-        Assert.assertEquals(1, shapeCollector.getShapesQuantity());
+        Assert.assertEquals(circle, shapeCollector.getFigure(0));
     }
 
     @Test
@@ -49,33 +47,32 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testGetFigure() {
         //Given
+        Square square = new Square(5);
+        Circle circle = new Circle(5);
+        Triangle triangle = new Triangle(5, 5);
         ShapeCollector shapeCollector = new ShapeCollector();
-        shapeCollector.addFigure(new Square(5));
-        shapeCollector.addFigure(new Circle(5));
-        shapeCollector.addFigure(new Triangle(5, 5));
+        shapeCollector.addFigure(square);
+        shapeCollector.addFigure(circle);
+        shapeCollector.addFigure(triangle);
         //When
         Shape shape1 = shapeCollector.getFigure(0);
         Shape shape2 = shapeCollector.getFigure(1);
         Shape shape3 = shapeCollector.getFigure(2);
         //Then
-        Assert.assertEquals("Square", shape1.getShapeName());
-        Assert.assertEquals(25.0, shape1.getField(), 0.00001);
-        Assert.assertEquals("Circle", shape2.getShapeName());
-        Assert.assertEquals(78.5, shape2.getField(), 0.00001);
-        Assert.assertEquals("Triangle", shape3.getShapeName());
-        Assert.assertEquals(12.5, shape3.getField(), 0.00001);
+        Assert.assertEquals(square, shape1);
+        Assert.assertEquals(circle, shape2);
+        Assert.assertEquals(triangle, shape3);
     }
 
     @Test
     public void testShowFigures() {
         //Given
+        Square square = new Square(5);
         ShapeCollector shapeCollector = new ShapeCollector();
-        shapeCollector.addFigure(new Square(5));
-        shapeCollector.addFigure(new Circle(5));
-        shapeCollector.addFigure(new Triangle(5, 5));
+        shapeCollector.addFigure(square);
         //When
-        List<Shape> shapes = shapeCollector.showFigures();
+        String shapes = shapeCollector.showFigures();
         //Then
-        Assert.assertEquals(shapes, shapeCollector.showFigures());
+        Assert.assertEquals(square.getShapeName() + " has a field size equals: " + square.getField(), shapes);
     }
 }

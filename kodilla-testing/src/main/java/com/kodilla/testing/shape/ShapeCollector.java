@@ -22,7 +22,14 @@ public class ShapeCollector {
         return shapes.size();
     }
 
-    public List<Shape> showFigures() {
-        return shapes;
+    public String showFigures() {
+
+        String showFigures = "";
+
+        for (Shape shape : shapes) {
+
+            showFigures += shape.getShapeName() + " has a field size equals: " + shape.getField();
+        }
+        return showFigures;
     }
 }

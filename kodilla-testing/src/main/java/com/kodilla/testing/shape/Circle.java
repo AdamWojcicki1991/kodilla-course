@@ -1,10 +1,10 @@
 package com.kodilla.testing.shape;
 
 public class Circle implements Shape {
-    private int radiusDimension;
+    private int radius;
 
-    public Circle(int radiusDimension) {
-        this.radiusDimension = radiusDimension;
+    public Circle(int radius) {
+        this.radius = radius;
     }
 
     public String getShapeName() {
@@ -12,7 +12,21 @@ public class Circle implements Shape {
     }
 
     public double getField() {
-        double pi = 3.14;
-        return pi * (radiusDimension * radiusDimension);
+        return Math.PI * (radius * radius);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Circle circle = (Circle) o;
+
+        return radius == circle.radius;
+    }
+
+    @Override
+    public int hashCode() {
+        return radius;
     }
 }
