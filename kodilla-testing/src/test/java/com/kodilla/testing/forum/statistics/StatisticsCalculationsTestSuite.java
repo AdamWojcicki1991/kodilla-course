@@ -28,7 +28,7 @@ public class StatisticsCalculationsTestSuite {
     }
 
     @Test
-    public void testcalculateAdvStatistics1() {
+    public void testShouldWorkWhenPostsCountIsZero() {
         //Given
         Statistics statistics = mock(Statistics.class);
         int postsCount = 0;
@@ -46,13 +46,13 @@ public class StatisticsCalculationsTestSuite {
         //When
         statisticsCalculations.calculateAdvStatistics(statistics);
         //Then
-        Assert.assertEquals(null, statisticsCalculations.getAverageCommentsPerUsers());
+        Assert.assertEquals(3, statisticsCalculations.getAverageCommentsPerUsers(), 0.1);
         Assert.assertEquals(0, statisticsCalculations.getAveragePostsPerUsers(), 0.1);
-        Assert.assertEquals(null, statisticsCalculations.getAverageCommentsPerPost());
+        Assert.assertEquals(0, statisticsCalculations.getAverageCommentsPerPost(), 0.1);
     }
 
     @Test
-    public void testcalculateAdvStatistics2() {
+    public void testShouldWorkWhenPostsCountIsThousend() {
         //Given
         Statistics statistics = mock(Statistics.class);
         int postsCount = 1000;
@@ -76,7 +76,7 @@ public class StatisticsCalculationsTestSuite {
     }
 
     @Test
-    public void testcalculateAdvStatistics3() {
+    public void testShouldWorkWhenCommentsCountIsZero() {
         //Given
         Statistics statistics = mock(Statistics.class);
         int postsCount = 10;
@@ -100,7 +100,7 @@ public class StatisticsCalculationsTestSuite {
     }
 
     @Test
-    public void testcalculateAdvStatistics4() {
+    public void testShouldWorkWhenCommentsCountIsLessThanPostsCount() {
         //Given
         Statistics statistics = mock(Statistics.class);
         int postsCount = 100;
@@ -124,7 +124,7 @@ public class StatisticsCalculationsTestSuite {
     }
 
     @Test
-    public void testcalculateAdvStatistics5() {
+    public void testShouldWorkWhenCommentsCountIsGraterThanPostsCount() {
         //Given
         Statistics statistics = mock(Statistics.class);
         int postsCount = 10;
@@ -148,7 +148,7 @@ public class StatisticsCalculationsTestSuite {
     }
 
     @Test
-    public void testcalculateAdvStatistics6() {
+    public void testShouldWorkWhenUsersCountIsZero() {
         //Given
         Statistics statistics = mock(Statistics.class);
         int postsCount = 10;
@@ -163,13 +163,13 @@ public class StatisticsCalculationsTestSuite {
         //When
         statisticsCalculations.calculateAdvStatistics(statistics);
         //Then
-        Assert.assertEquals(null, statisticsCalculations.getAverageCommentsPerUsers());
-        Assert.assertEquals(null, statisticsCalculations.getAveragePostsPerUsers());
+        Assert.assertEquals(0, statisticsCalculations.getAverageCommentsPerUsers(), 0.1);
+        Assert.assertEquals(0, statisticsCalculations.getAveragePostsPerUsers(), 0.1);
         Assert.assertEquals(1, statisticsCalculations.getAverageCommentsPerPost(), 0.1);
     }
 
     @Test
-    public void testcalculateAdvStatistics7() {
+    public void testShouldWorkWhenUsersCountIsHundred() {
         //Given
         Statistics statistics = mock(Statistics.class);
         int postsCount = 1000;

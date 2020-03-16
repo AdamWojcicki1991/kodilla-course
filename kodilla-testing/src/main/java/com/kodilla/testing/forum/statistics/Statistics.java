@@ -3,9 +3,9 @@ package com.kodilla.testing.forum.statistics;
 import java.util.List;
 
 public interface Statistics {
-    public List<String> usersNames(); // list of users names
+    public List<String> usersNames();
 
-    public int postsCount();          // total quantity of forum posts
+    public int postsCount();
 
-    public int commentsCount();       // total quantity of forum comments
+    public int commentsCount();
 }
