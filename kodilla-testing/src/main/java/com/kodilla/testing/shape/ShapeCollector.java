@@ -28,7 +28,7 @@ public class ShapeCollector {
 
         for (Shape shape : shapes) {
 
-            showFigures += shape.toString();
+            showFigures += shape;
         }
         return showFigures;
     }

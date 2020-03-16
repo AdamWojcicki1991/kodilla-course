@@ -1,9 +1,9 @@
 package com.kodilla.testing.shape;
 
 public class Square implements Shape {
-    private int side;
+    private double side;
 
-    public Square(int side) {
+    public Square(double side) {
         this.side = side;
     }
 
@@ -15,6 +15,10 @@ public class Square implements Shape {
         return side * side;
     }
 
+    public double getSide() {
+        return side;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -22,16 +26,17 @@ public class Square implements Shape {
 
         Square square = (Square) o;
 
-        return side == square.side;
+        return Double.compare(square.side, side) == 0;
     }
 
     @Override
     public int hashCode() {
-        return side;
+        long temp = Double.doubleToLongBits(side);
+        return (int) (temp ^ (temp >>> 32));
     }
 
     @Override
     public String toString() {
-        return getShapeName() + " has a field size equals: " + getField() + " ";
+        return getShapeName() + "(" + getSide() + "," + getSide() + ")" + " ";
     }
 }

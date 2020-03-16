@@ -1,9 +1,9 @@
 package com.kodilla.testing.shape;
 
 public class Circle implements Shape {
-    private int radius;
+    private double radius;
 
-    public Circle(int radius) {
+    public Circle(double radius) {
         this.radius = radius;
     }
 
@@ -15,6 +15,10 @@ public class Circle implements Shape {
         return Math.PI * (radius * radius);
     }
 
+    public double getRadius() {
+        return radius;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -22,16 +26,17 @@ public class Circle implements Shape {
 
         Circle circle = (Circle) o;
 
-        return radius == circle.radius;
+        return Double.compare(circle.radius, radius) == 0;
     }
 
     @Override
     public int hashCode() {
-        return radius;
+        long temp = Double.doubleToLongBits(radius);
+        return (int) (temp ^ (temp >>> 32));
     }
 
     @Override
     public String toString() {
-        return getShapeName() + " has a field size equals: " + getField() + " ";
+        return getShapeName() + "(" + getRadius() + ")" + " ";
     }
 }

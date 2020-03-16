@@ -17,6 +17,14 @@ public class Triangle implements Shape {
         return (base * height) / 2;
     }
 
+    public double getBase() {
+        return base;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -41,6 +49,6 @@ public class Triangle implements Shape {
 
     @Override
     public String toString() {
-        return getShapeName() + " has a field size equals: " + getField() + " ";
+        return getShapeName() + "(" + getBase() + "," + getHeight() + ")" + " ";
     }
 }
