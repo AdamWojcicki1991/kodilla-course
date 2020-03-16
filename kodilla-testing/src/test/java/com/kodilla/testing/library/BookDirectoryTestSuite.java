@@ -102,4 +102,55 @@ public class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, never()).listBooksWithCondition(anyString());
     }
+
+    @Test
+    public void testListBooksInHandsOfNoBorrowedBooksByUser() {
+        // Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser libraryUser = new LibraryUser("Paul", "Stevens", "91040800456");
+        List<Book> resultListBooksInHandsOf = new ArrayList<>();
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(resultListBooksInHandsOf);
+
+        // When
+        List<Book> listNoBorrowedBooksByUser = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        // Then
+        assertEquals(0, listNoBorrowedBooksByUser.size());
+        verify(libraryDatabaseMock, never()).listBooksInHandsOf(anyObject());
+    }
+
+    @Test
+    public void testListBooksInHandsOfOneBorrowedBookByUser() {
+        // Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser libraryUser = new LibraryUser("Jack", "Stevens", "91040800456");
+        List<Book> resultListBooksInHandsOf = generateListOfNBooks(1);
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(resultListBooksInHandsOf);
+
+        // When
+        List<Book> listOneBorrowedBookByUser = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        // Then
+        assertEquals(1, listOneBorrowedBookByUser.size());
+        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(anyObject());
+    }
+
+    @Test
+    public void testListBooksInHandsOfFiveBorrowedBooksByUser() {
+        // Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        LibraryUser libraryUser = new LibraryUser("Arthur", "Stevens", "91040800456");
+        List<Book> resultListBooksInHandsOf = generateListOfNBooks(5);
+        when(libraryDatabaseMock.listBooksInHandsOf(anyObject())).thenReturn(resultListBooksInHandsOf);
+
+        // When
+        List<Book> listFiveBorrowedBooksByUser = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        // Then
+        assertEquals(5, listFiveBorrowedBooksByUser.size());
+        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(anyObject());
+    }
 }
