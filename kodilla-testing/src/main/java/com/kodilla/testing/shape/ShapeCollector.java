@@ -25,10 +25,15 @@ public class ShapeCollector {
     public String showFigures() {
 
         String showFigures = "";
+        int i = 0;
 
         for (Shape shape : shapes) {
-
-            showFigures += shape;
+            i++;
+            if (i != shapes.size()) {
+                showFigures += shape + ", ";
+            } else {
+                showFigures += shape;
+            }
         }
         return showFigures;
     }

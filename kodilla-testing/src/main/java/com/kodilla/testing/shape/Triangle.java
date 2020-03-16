@@ -49,6 +49,6 @@ public class Triangle implements Shape {
 
     @Override
     public String toString() {
-        return getShapeName() + "(" + getBase() + "," + getHeight() + ")" + " ";
+        return getShapeName() + "(" + getBase() + "," + getHeight() + ")";
     }
 }
