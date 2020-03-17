@@ -45,9 +45,10 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorNormalList() {
         //Given
+        List<Integer> numbers = numbers(20);
         OddNumbersExterminator oddNumbersExterminator = new OddNumbersExterminator();
         //When
-        List<Integer> evensResult = oddNumbersExterminator.exterminate(numbers(20));
+        List<Integer> evensResult = oddNumbersExterminator.exterminate(numbers);
         //Then
         for (Integer evenNumber : evensResult) {
             Assert.assertTrue(evenNumber % 2 == 0);
