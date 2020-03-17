@@ -54,8 +54,7 @@ public class BookDirectoryTestSuite {
         resultListOfBooks.add(book2);
         resultListOfBooks.add(book3);
         resultListOfBooks.add(book4);
-        when(libraryDatabaseMock.listBooksWithCondition("Secret"))
-                .thenReturn(resultListOfBooks);
+        when(libraryDatabaseMock.listBooksWithCondition("Secret")).thenReturn(resultListOfBooks);
 
         // When
         List<Book> theListOfBooks = bookLibrary.listBooksWithCondition("Secret");
@@ -117,7 +116,7 @@ public class BookDirectoryTestSuite {
 
         // Then
         assertEquals(0, listNoBorrowedBooksByUser.size());
-        verify(libraryDatabaseMock, never()).listBooksInHandsOf(anyObject());
+        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(anyObject());
     }
 
     @Test
@@ -134,7 +133,7 @@ public class BookDirectoryTestSuite {
 
         // Then
         assertEquals(1, listOneBorrowedBookByUser.size());
-        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(anyObject());
+        verify(libraryDatabaseMock, times(2)).listBooksInHandsOf(anyObject());
     }
 
     @Test
@@ -151,6 +150,6 @@ public class BookDirectoryTestSuite {
 
         // Then
         assertEquals(5, listFiveBorrowedBooksByUser.size());
-        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(anyObject());
+        verify(libraryDatabaseMock, times(2)).listBooksInHandsOf(anyObject());
     }
 }
