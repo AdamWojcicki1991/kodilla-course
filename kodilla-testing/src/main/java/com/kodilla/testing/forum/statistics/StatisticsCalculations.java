@@ -1,9 +1,9 @@
 package com.kodilla.testing.forum.statistics;
 
 public class StatisticsCalculations {
-    private int usersCount = 0;
-    private int postsCount = 0;
-    private int commentCount = 0;
+    private int usersCount;
+    private int postsCount;
+    private int commentCount;
     private double averagePostsPerUsers;
     private double averageCommentsPerUsers;
     private double averageCommentsPerPost;
@@ -12,14 +12,14 @@ public class StatisticsCalculations {
         usersCount = statistics.usersNames().size();
         postsCount = statistics.postsCount();
         commentCount = statistics.commentsCount();
-        if (usersCount <= 0) {
+        if (usersCount == 0) {
             averagePostsPerUsers = 0;
             averageCommentsPerUsers = 0;
         } else {
             averagePostsPerUsers = postsCount / usersCount;
             averageCommentsPerUsers = commentCount / usersCount;
         }
-        if (postsCount <= 0) {
+        if (postsCount == 0) {
             averageCommentsPerPost = 0;
         } else {
             averageCommentsPerPost = commentCount / postsCount;
