@@ -1,9 +1,9 @@
 package com.kodilla.testing.forum.statistics;
 
 public class StatisticsCalculations {
-    private int usersCount = 0;
-    private int postsCount = 0;
-    private int commentCount = 0;
+    private int usersCount;
+    private int postsCount;
+    private int commentCount;
     private double averagePostsPerUsers;
     private double averageCommentsPerUsers;
     private double averageCommentsPerPost;
