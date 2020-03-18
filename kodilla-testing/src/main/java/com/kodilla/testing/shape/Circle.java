@@ -1,5 +1,7 @@
 package com.kodilla.testing.shape;
 
+import java.util.Objects;
+
 public class Circle implements Shape {
     private double radius;
 
@@ -31,12 +33,11 @@ public class Circle implements Shape {
 
     @Override
     public int hashCode() {
-        long temp = Double.doubleToLongBits(radius);
-        return (int) (temp ^ (temp >>> 32));
+        return Objects.hash(radius);
     }
 
     @Override
     public String toString() {
-        return getShapeName() + "(" + getRadius() + ")";
+        return getShapeName() + "(" + radius + ")";
     }
 }

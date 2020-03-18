@@ -77,6 +77,6 @@ public class ShapeCollectorTestSuite {
         //When
         String shapes = shapeCollector.showFigures();
         //Then
-        Assert.assertEquals(square.toString() + ", " + circle.toString() + ", " + triangle.toString(), shapes);
+        Assert.assertEquals("Square(5.0,5.0), Circle(5.0), Triangle(5.0,5.0)", shapes);
     }
 }

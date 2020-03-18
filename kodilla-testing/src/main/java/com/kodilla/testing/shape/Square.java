@@ -1,5 +1,7 @@
 package com.kodilla.testing.shape;
 
+import java.util.Objects;
+
 public class Square implements Shape {
     private double side;
 
@@ -31,12 +33,11 @@ public class Square implements Shape {
 
     @Override
     public int hashCode() {
-        long temp = Double.doubleToLongBits(side);
-        return (int) (temp ^ (temp >>> 32));
+        return Objects.hash(side);
     }
 
     @Override
     public String toString() {
-        return getShapeName() + "(" + getSide() + "," + getSide() + ")";
+        return getShapeName() + "(" + side + "," + side + ")";
     }
 }

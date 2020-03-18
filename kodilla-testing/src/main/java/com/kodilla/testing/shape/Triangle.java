@@ -1,5 +1,7 @@
 package com.kodilla.testing.shape;
 
+import java.util.Objects;
+
 public class Triangle implements Shape {
     private double base;
     private double height;
@@ -38,17 +40,11 @@ public class Triangle implements Shape {
 
     @Override
     public int hashCode() {
-        int result;
-        long temp;
-        temp = Double.doubleToLongBits(base);
-        result = (int) (temp ^ (temp >>> 32));
-        temp = Double.doubleToLongBits(height);
-        result = 31 * result + (int) (temp ^ (temp >>> 32));
-        return result;
+        return Objects.hash(base, height);
     }
 
     @Override
     public String toString() {
-        return getShapeName() + "(" + getBase() + "," + getHeight() + ")";
+        return getShapeName() + "(" + base + "," + height + ")";
     }
 }
