@@ -20,12 +20,6 @@ public class BookLibrary {
     }
 
     public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
-        List<Book> bookInHandsList = new ArrayList<>();
-        if (libraryDatabase.listBooksInHandsOf(libraryUser).isEmpty()) {
-            return bookInHandsList;
-        } else {
-            bookInHandsList = libraryDatabase.listBooksInHandsOf(libraryUser);
-        }
-        return bookInHandsList;
+        return libraryDatabase.listBooksInHandsOf(libraryUser);
     }
 }

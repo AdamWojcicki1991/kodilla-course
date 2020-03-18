@@ -116,7 +116,7 @@ public class BookDirectoryTestSuite {
 
         // Then
         assertEquals(0, listNoBorrowedBooksByUser.size());
-        verify(libraryDatabaseMock, times(1)).listBooksInHandsOf(anyObject());
+        verify(libraryDatabaseMock).listBooksInHandsOf(libraryUser);
     }
 
     @Test
@@ -133,7 +133,7 @@ public class BookDirectoryTestSuite {
 
         // Then
         assertEquals(1, listOneBorrowedBookByUser.size());
-        verify(libraryDatabaseMock, times(2)).listBooksInHandsOf(anyObject());
+        verify(libraryDatabaseMock).listBooksInHandsOf(libraryUser);
     }
 
     @Test
@@ -150,6 +150,6 @@ public class BookDirectoryTestSuite {
 
         // Then
         assertEquals(5, listFiveBorrowedBooksByUser.size());
-        verify(libraryDatabaseMock, times(2)).listBooksInHandsOf(anyObject());
+        verify(libraryDatabaseMock).listBooksInHandsOf(libraryUser);
     }
 }
