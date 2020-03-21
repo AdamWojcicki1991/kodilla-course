@@ -10,7 +10,7 @@ public interface ArrayOperations {
                 .forEach(System.out::println);
         double average = IntStream.range(0, numbers.length)
                 .map(n -> numbers[n])
-                .average().getAsDouble();
+                .average().orElse(0);
         return average;
     }
 }
