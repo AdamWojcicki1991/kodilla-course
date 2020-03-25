@@ -2,6 +2,7 @@ package com.kodilla.stream.portfolio;
 
 import org.junit.*;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -152,5 +153,49 @@ public class BoardTestSuite {
 
         //Then
         Assert.assertEquals(2, longTasks);
+    }
+
+    @Test
+    public void testAddTaskListAverageWorkingOnTask1() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        long identity = 0;
+        long sumOFDays = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(t -> Duration.between(t.getCreated().atStartOfDay(), LocalDate.now().atStartOfDay()).toDays())
+                .reduce(identity, (sum, current) -> sum = sum + current);
+        long tasksCount = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .count();
+
+        //Then
+        Assert.assertEquals(30, sumOFDays);
+        Assert.assertEquals(3, tasksCount);
+        Assert.assertEquals(10, sumOFDays / tasksCount, 0.1);
+    }
+
+    @Test
+    public void testAddTaskListAverageWorkingOnTask2() {
+        //Given
+        Board project = prepareTestData();
+
+        //When
+        List<TaskList> inProgressTasks = new ArrayList<>();
+        inProgressTasks.add(new TaskList("In progress"));
+        double average = project.getTaskLists().stream()
+                .filter(inProgressTasks::contains)
+                .flatMap(tl -> tl.getTasks().stream())
+                .map(t -> Duration.between(t.getCreated().atStartOfDay(), LocalDate.now().atStartOfDay()).toDays())
+                .mapToLong(t -> t)
+                .average().getAsDouble();
+
+        //Then
+        Assert.assertEquals(10, average, 0.1);
     }
 }
