@@ -16,16 +16,9 @@ public class FlightSearch {
 
     public boolean findFlight(Flight flight) throws RouteNotFoundException {
 
-        if (flightMap.containsKey(flight.getArrivalAirport())) {
-            for (Map.Entry<String, Boolean> entry : flightMap.entrySet()) {
-                if (entry.getKey().equals(flight.getArrivalAirport()) && entry.getValue()) {
-                    return true;
-                }
-            }
-            return false;
-        } else {
+        if (!flightMap.containsKey(flight.getArrivalAirport()))
             throw new RouteNotFoundException("Airport doesn't exist in Flight Map");
-        }
+        return flightMap.get(flight.getArrivalAirport());
     }
 
     public Map<String, Boolean> getFlightMap() {
