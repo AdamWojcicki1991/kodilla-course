@@ -4,16 +4,12 @@ import com.kodilla.rps.model.Move;
 
 import java.util.Random;
 
-import static com.kodilla.rps.model.Move.ROCK;
-
 public class EnemyStrategy implements Strategy {
 
-    private static final Random random = new Random();
-
+    private static final Random RANDOM = new Random();
 
     @Override
     public Move getMove() {
-        // implement
-        return ROCK;
+        return Move.get(RANDOM.nextInt(5));
     }
 }

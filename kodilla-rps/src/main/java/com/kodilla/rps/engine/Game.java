@@ -25,7 +25,7 @@ public class Game {
         definition = getGameDefinition();
         RoundResult result = RoundResult.DRAW;
         while (shouldPlay(definition, result)) {
-            result = new Round(statistics, userInterface).play();
+            result = new Round(definition, statistics, userInterface).play();
         }
         userInterface.informGame(definition, statistics);
         if (result == NEW) {
