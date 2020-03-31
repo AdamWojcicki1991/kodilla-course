@@ -1,13 +1,13 @@
-package pl.mps.rps.engine;
+package com.kodilla.rps.engine;
 
-import pl.mps.rps.model.GameDefinition;
-import pl.mps.rps.model.GameResult;
-import pl.mps.rps.model.RoundResult;
-import pl.mps.rps.model.Statistics;
-import pl.mps.rps.uix.UserInterface;
+import com.kodilla.rps.model.GameDefinition;
+import com.kodilla.rps.model.GameResult;
+import com.kodilla.rps.model.RoundResult;
+import com.kodilla.rps.model.Statistics;
+import com.kodilla.rps.uix.UserInterface;
 
-import static pl.mps.rps.model.RoundResult.EXIT;
-import static pl.mps.rps.model.RoundResult.NEW;
+import static com.kodilla.rps.model.RoundResult.EXIT;
+import static com.kodilla.rps.model.RoundResult.NEW;
 
 public class Game {
 

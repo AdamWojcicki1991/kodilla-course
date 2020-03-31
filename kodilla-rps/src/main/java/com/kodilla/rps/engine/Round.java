@@ -1,12 +1,12 @@
-package pl.mps.rps.engine;
+package com.kodilla.rps.engine;
 
-import pl.mps.rps.model.RoundResult;
-import pl.mps.rps.model.Statistics;
-import pl.mps.rps.strategy.EnemyStrategy;
-import pl.mps.rps.strategy.PlayerStrategy;
-import pl.mps.rps.uix.UserInterface;
+import com.kodilla.rps.model.RoundResult;
+import com.kodilla.rps.model.Statistics;
+import com.kodilla.rps.strategy.EnemyStrategy;
+import com.kodilla.rps.strategy.PlayerStrategy;
+import com.kodilla.rps.uix.UserInterface;
 
-import static pl.mps.rps.model.RoundResult.WIN;
+import static com.kodilla.rps.model.RoundResult.WIN;
 
 public class Round {
 

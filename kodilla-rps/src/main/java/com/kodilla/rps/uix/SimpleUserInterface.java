@@ -1,9 +1,9 @@
-package pl.mps.rps.uix;
+package com.kodilla.rps.uix;
 
-import pl.mps.rps.model.GameDefinition;
-import pl.mps.rps.model.Move;
-import pl.mps.rps.model.RoundResult;
-import pl.mps.rps.model.Statistics;
+import com.kodilla.rps.model.GameDefinition;
+import com.kodilla.rps.model.Move;
+import com.kodilla.rps.model.RoundResult;
+import com.kodilla.rps.model.Statistics;
 
 public class SimpleUserInterface implements UserInterface {
     @Override

@@ -1,7 +1,6 @@
-package pl.mps.rps.engine;
+package com.kodilla.rps.engine;
 
-import pl.mps.rps.model.GameResult;
-import pl.mps.rps.uix.UserInterface;
+import com.kodilla.rps.uix.UserInterface;
 
 public class GameRunner {
 

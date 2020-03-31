@@ -1,9 +1,9 @@
-package pl.mps.rps.strategy;
+package com.kodilla.rps.strategy;
 
-import pl.mps.rps.model.Move;
-import pl.mps.rps.uix.UserInterface;
+import com.kodilla.rps.model.Move;
+import com.kodilla.rps.uix.UserInterface;
 
-import static pl.mps.rps.model.Move.ROCK;
+import static com.kodilla.rps.model.Move.ROCK;
 
 public class PlayerStrategy implements Strategy {
 

@@ -1,8 +1,8 @@
-package pl.mps.rps;
+package com.kodilla.rps;
 
-import pl.mps.rps.engine.GameRunner;
-import pl.mps.rps.uix.SimpleUserInterface;
-import pl.mps.rps.uix.UserInterface;
+import com.kodilla.rps.engine.GameRunner;
+import com.kodilla.rps.uix.SimpleUserInterface;
+import com.kodilla.rps.uix.UserInterface;
 
 public class RpsApplication {
 

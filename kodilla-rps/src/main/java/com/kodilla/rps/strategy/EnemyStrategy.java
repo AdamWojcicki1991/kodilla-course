@@ -1,10 +1,10 @@
-package pl.mps.rps.strategy;
+package com.kodilla.rps.strategy;
 
-import pl.mps.rps.model.Move;
+import com.kodilla.rps.model.Move;
 
 import java.util.Random;
 
-import static pl.mps.rps.model.Move.ROCK;
+import static com.kodilla.rps.model.Move.ROCK;
 
 public class EnemyStrategy implements Strategy {
 

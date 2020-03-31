@@ -1,4 +1,4 @@
-package pl.mps.rps.model;
+package com.kodilla.rps.model;
 
 public enum GameResult {
 
