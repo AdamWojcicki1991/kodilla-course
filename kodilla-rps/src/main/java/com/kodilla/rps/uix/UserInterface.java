@@ -11,23 +11,27 @@ public interface UserInterface {
 
     void printShortMenu();
 
-    String getMove();
+    void informRound(GameDefinition definition, Move playerMove, Move enemyMove, RoundResult result);
+
+    void informGame(GameDefinition definition, Statistics statistics);
+
+    void printRound(int number, GameDefinition definition, Statistics statistics);
+
+    void printValidCharacters();
+
+    void printErrorMessage();
+
+    void printConfirmation(String confirmationType);
+
+    void thankYou(String username);
 
     String getUserName();
 
+    char getValidCharacter();
+
     int getRoundCount();
-
-    void informRound(Move playerMove, Move enemyMove, RoundResult result);
-
-    void informGame(GameDefinition definition, Statistics statistics);
 
     boolean confirmExit();
 
     boolean confirmNewGame();
-
-    boolean confirmOnceAgain();
-
-    void printRound(int number);
-
-    void thankYou(String username);
 }
