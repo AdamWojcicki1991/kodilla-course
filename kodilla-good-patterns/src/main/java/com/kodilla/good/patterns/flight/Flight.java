@@ -5,16 +5,10 @@ import java.util.Objects;
 public class Flight {
     private final String departureAirport;
     private final String arrivalAirport;
-    private final String transferAirport;
 
     public Flight(final String departureAirport, final String arrivalAirport) {
-        this(departureAirport, "", arrivalAirport);
-    }
-
-    public Flight(final String departureAirport, final String transferAirport, final String arrivalAirport) {
         this.departureAirport = departureAirport;
         this.arrivalAirport = arrivalAirport;
-        this.transferAirport = transferAirport;
     }
 
     public String getDepartureAirport() {
@@ -32,20 +26,16 @@ public class Flight {
 
         Flight flight = (Flight) o;
 
-        return Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(transferAirport, flight.transferAirport) && Objects.equals(arrivalAirport, flight.arrivalAirport);
+        return Objects.equals(departureAirport, flight.departureAirport) && Objects.equals(arrivalAirport, flight.arrivalAirport);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(departureAirport, transferAirport, arrivalAirport);
+        return Objects.hash(departureAirport, arrivalAirport);
     }
 
     @Override
     public String toString() {
-        if (transferAirport.equals("")) {
-            return "Flight " + departureAirport + " -> " + arrivalAirport;
-        } else {
-            return "Flight " + departureAirport + " -> " + transferAirport + " -> " + arrivalAirport;
-        }
+        return "Flight " + departureAirport + " -> " + arrivalAirport;
     }
 }

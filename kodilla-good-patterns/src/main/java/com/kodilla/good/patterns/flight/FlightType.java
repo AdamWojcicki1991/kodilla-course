@@ -1,8 +1,8 @@
 package com.kodilla.good.patterns.flight;
 
 public enum FlightType {
-    WITH_TRANSFER,
+    FLIGHT_WITH_TRANSFER,
     DIRECT_FLIGHT_FROM_TO,
-    FROM_AIRPORT,
-    TO_AIRPORT
+    FLIGHT_FROM_AIRPORT,
+    FLIGHT_TO_AIRPORT
 }

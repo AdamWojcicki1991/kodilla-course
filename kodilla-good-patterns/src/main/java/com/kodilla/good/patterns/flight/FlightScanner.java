@@ -16,11 +16,11 @@ public class FlightScanner implements FlightService {
     public List<Flight> findFlight(final FlightRequest flightRequest) {
         if (flights == null) return Collections.emptyList();
         switch (flightRequest.getFlightType()) {
-            case FROM_AIRPORT:
+            case FLIGHT_FROM_AIRPORT:
                 return flights.stream()
                         .filter(flight -> flight.getDepartureAirport().equals(flightRequest.getDepartureAirport()))
                         .collect(Collectors.toList());
-            case TO_AIRPORT:
+            case FLIGHT_TO_AIRPORT:
                 return flights.stream()
                         .filter(flight -> flight.getArrivalAirport().equals(flightRequest.getArrivalAirport()))
                         .collect(Collectors.toList());
@@ -28,7 +28,7 @@ public class FlightScanner implements FlightService {
                 return flights.stream()
                         .filter(flight -> flight.getDepartureAirport().equals(flightRequest.getDepartureAirport()) && flight.getArrivalAirport().equals(flightRequest.getArrivalAirport()))
                         .collect(Collectors.toList());
-            case WITH_TRANSFER:
+            case FLIGHT_WITH_TRANSFER:
                 List<Flight> flightsFrom = flights.stream()
                         .filter(flight -> flight.getDepartureAirport().equals(flightRequest.getDepartureAirport()))
                         .collect(Collectors.toList());
@@ -38,9 +38,11 @@ public class FlightScanner implements FlightService {
                 List<Flight> flightsTransfers = new ArrayList<>();
                 for (Flight flightFrom : flightsFrom) {
                     flightsTo.stream()
-                            .filter(flight -> flight.getDepartureAirport().equals(flightFrom.getArrivalAirport()))
-                            .map(flight -> new Flight(flightFrom.getDepartureAirport(), flight.getDepartureAirport(), flight.getArrivalAirport()))
-                            .forEach(flightsTransfers::add);
+                            .filter(flightTo -> flightTo.getDepartureAirport().equals(flightFrom.getArrivalAirport()))
+                            .forEach(flightTo -> {
+                                flightsTransfers.add(flightFrom);
+                                flightsTransfers.add(flightTo);
+                            });
                 }
                 return flightsTransfers;
             default:
