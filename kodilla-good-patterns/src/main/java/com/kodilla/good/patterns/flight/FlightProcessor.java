@@ -11,7 +11,7 @@ public class FlightProcessor {
     }
 
     public String process(final FlightRequest flightRequest) throws FlightNotFoundException {
-        List<Flight> scannedFlights = flightService.findFlight(flightRequest);
+        List<Flight> scannedFlights = flightService.findFlightWithChanges(flightRequest);
         if (scannedFlights.isEmpty())
             throw new FlightNotFoundException("Airport doesn't exist in our flights");
         return scannedFlights.stream()
