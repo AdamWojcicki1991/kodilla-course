@@ -1,11 +1,8 @@
 package com.kodilla.patterns.factory.tasks;
 
 public final class TaskFactory {
-    public static final String SHOPPING = "SHOPPING";
-    public static final String PAINTING = "PAINTING";
-    public static final String DRIVING = "DRIVING";
 
-    public final Task makeTask(final String taskClass) {
+    public final Task makeTask(final TaskType taskClass) {
         switch (taskClass) {
             case SHOPPING:
                 return new ShoppingTask("SHOPPING TASK", "Johnnie Walker King George V WHISKY 0,7L", 2);

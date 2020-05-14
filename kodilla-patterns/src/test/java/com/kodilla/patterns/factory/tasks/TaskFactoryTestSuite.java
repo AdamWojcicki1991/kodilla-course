@@ -2,6 +2,8 @@ package com.kodilla.patterns.factory.tasks;
 
 import org.junit.*;
 
+import static com.kodilla.patterns.factory.tasks.TaskType.*;
+
 public class TaskFactoryTestSuite {
     private static int testCounter;
 
@@ -26,7 +28,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory taskFactory = new TaskFactory();
         //When
-        Task shopping = taskFactory.makeTask(TaskFactory.SHOPPING);
+        Task shopping = taskFactory.makeTask(SHOPPING);
         shopping.executeTask();
         //Then
         Assert.assertEquals("SHOPPING TASK", shopping.getTaskName());
@@ -38,7 +40,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory taskFactory = new TaskFactory();
         //When
-        Task painting = taskFactory.makeTask(TaskFactory.PAINTING);
+        Task painting = taskFactory.makeTask(PAINTING);
         painting.executeTask();
         //Then
         Assert.assertEquals("PAINTING TASK", painting.getTaskName());
@@ -50,7 +52,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory taskFactory = new TaskFactory();
         //When
-        Task driving = taskFactory.makeTask(TaskFactory.DRIVING);
+        Task driving = taskFactory.makeTask(DRIVING);
         driving.executeTask();
         //Then
         Assert.assertEquals("DRIVING TASK", driving.getTaskName());
@@ -62,7 +64,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory taskFactory = new TaskFactory();
         //When
-        Task shopping = taskFactory.makeTask(TaskFactory.SHOPPING);
+        Task shopping = taskFactory.makeTask(SHOPPING);
         //Then
         Assert.assertEquals("SHOPPING TASK", shopping.getTaskName());
         Assert.assertEquals(false, shopping.isTaskExecuted());
@@ -73,7 +75,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory taskFactory = new TaskFactory();
         //When
-        Task painting = taskFactory.makeTask(TaskFactory.PAINTING);
+        Task painting = taskFactory.makeTask(PAINTING);
         //Then
         Assert.assertEquals("PAINTING TASK", painting.getTaskName());
     }
@@ -83,7 +85,7 @@ public class TaskFactoryTestSuite {
         //Given
         TaskFactory taskFactory = new TaskFactory();
         //When
-        Task driving = taskFactory.makeTask(TaskFactory.DRIVING);
+        Task driving = taskFactory.makeTask(DRIVING);
         //Then
         Assert.assertEquals("DRIVING TASK", driving.getTaskName());
     }
