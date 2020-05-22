@@ -9,13 +9,12 @@ import com.kodilla.rps.uix.UserInterface;
 import static com.kodilla.rps.model.RoundResult.EXIT;
 import static com.kodilla.rps.model.RoundResult.NEW;
 
-public class Game {
-
+public final class Game {
     private final UserInterface userInterface;
     private final Statistics statistics;
     private GameDefinition definition;
 
-    public Game(UserInterface userInterface) {
+    public Game(final UserInterface userInterface) {
         this.userInterface = userInterface;
         this.statistics = new Statistics();
     }
@@ -28,31 +27,26 @@ public class Game {
             result = new Round(definition, statistics, userInterface).play();
         }
         userInterface.informGame(definition, statistics);
-        if (result == NEW) {
-            return GameResult.NEXT;
-        }
-        return GameResult.END;
+        return (result == NEW) ? GameResult.NEXT : GameResult.END;
+    }
+
+    public String getUsername() {
+        return definition.getUserName();
     }
 
     private boolean shouldPlay(GameDefinition definition, RoundResult result) {
-        if (result == EXIT) {
-            boolean exit = userInterface.confirmExit();
-            if (exit) return false; else return statistics.hasNextRound(definition.getRounds());
-        }
-        if (result == NEW) {
-            boolean exit = userInterface.confirmNewGame();
-            if (exit) return false; else return statistics.hasNextRound(definition.getRounds());
-        }
+        if (result == EXIT) return gameConfirm(definition, userInterface.confirmExit());
+        if (result == NEW) return gameConfirm(definition, userInterface.confirmNewGame());
         return statistics.hasNextRound(definition.getRounds());
+    }
+
+    private boolean gameConfirm(GameDefinition definition, boolean confirm) {
+        return (!confirm) && statistics.hasNextRound(definition.getRounds());
     }
 
     private GameDefinition getGameDefinition() {
         String userName = userInterface.getUserName();
         int roundCount = userInterface.getRoundCount();
         return new GameDefinition(userName, roundCount);
-    }
-
-    public String getUsername() {
-        return definition.getUsername();
     }
 }

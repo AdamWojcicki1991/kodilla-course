@@ -1,7 +1,6 @@
 package com.kodilla.rps.model;
 
 public final class Statistics {
-
     private int rounds;
     private int wins;
     private int loses;

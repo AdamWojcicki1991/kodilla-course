@@ -5,16 +5,15 @@ import com.kodilla.rps.uix.UserInterface;
 
 import static com.kodilla.rps.model.Move.*;
 
-public class PlayerStrategy implements Strategy {
+public final class PlayerStrategy implements Strategy {
     private final UserInterface userInterface;
 
-    public PlayerStrategy(UserInterface userInterface) {
+    public PlayerStrategy(final UserInterface userInterface) {
         this.userInterface = userInterface;
     }
 
     @Override
     public Move getMove() {
-
         switch (userInterface.getValidCharacter()) {
             case '1':
                 return ROCK;

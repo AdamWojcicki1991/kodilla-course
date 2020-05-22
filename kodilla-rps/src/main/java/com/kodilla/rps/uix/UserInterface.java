@@ -6,7 +6,6 @@ import com.kodilla.rps.model.RoundResult;
 import com.kodilla.rps.model.Statistics;
 
 public interface UserInterface {
-
     void printMenu();
 
     void printShortMenu();

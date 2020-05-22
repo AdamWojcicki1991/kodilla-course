@@ -11,8 +11,7 @@ import com.kodilla.rps.uix.UserInterface;
 import static com.kodilla.rps.model.RoundResult.EXIT;
 import static com.kodilla.rps.model.RoundResult.NEW;
 
-public class Round {
-
+public final class Round {
     private final int number;
     private final Statistics statistics;
     private final PlayerStrategy playerStrategy;
@@ -21,7 +20,7 @@ public class Round {
     private final UserInterface userInterface;
     private final GameDefinition definition;
 
-    public Round(GameDefinition definition, Statistics statistics, UserInterface userInterface) {
+    public Round(final GameDefinition definition, final Statistics statistics, final UserInterface userInterface) {
         this.number = statistics.getRounds() + 1;
         this.statistics = statistics;
         this.userInterface = userInterface;

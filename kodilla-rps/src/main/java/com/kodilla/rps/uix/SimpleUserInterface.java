@@ -12,7 +12,6 @@ import static com.kodilla.rps.model.Winner.ENEMY;
 import static com.kodilla.rps.model.Winner.PLAYER;
 
 public class SimpleUserInterface implements UserInterface {
-
     private static final Scanner scanner = new Scanner(System.in);
 
     @Override
@@ -32,30 +31,30 @@ public class SimpleUserInterface implements UserInterface {
     public void printShortMenu() {
         System.out.println("\n############################################################ SHORT GAME MENU ############################################################");
         System.out.println("Key y - EXIT GAME OR START NEW GAME");
-        System.out.println("Key n - RETURN TO PREVIUS GAME");
+        System.out.println("Key n - RETURN TO PREVIOUS GAME");
         System.out.println("#########################################################################################################################################\n");
     }
 
     @Override
     public void informRound(GameDefinition definition, Move playerMove, Move enemyMove, RoundResult result) {
         System.out.println("\n############################################################## START ROUND ##############################################################\n");
-        System.out.println(definition.getUsername() + playerMove.toString());
+        System.out.println(definition.getUserName() + playerMove.toString());
         System.out.println("Computer" + enemyMove.toString());
-        System.out.println("ROUND RESULT: " + definition.getUsername() + " " + result);
+        System.out.println("ROUND RESULT: " + definition.getUserName() + " " + result);
     }
 
     @Override
     public void informGame(GameDefinition definition, Statistics statistics) {
         System.out.println("############################################################### END GAME ################################################################\n");
-        System.out.println(definition.getUsername() + " WINS " + statistics.getWins() + " ROUNDS" + " | " + "Computer WINS " + statistics.getLoses() + " ROUNDS");
+        System.out.println(definition.getUserName() + " WINS " + statistics.getWins() + " ROUNDS" + " | " + "Computer WINS " + statistics.getLoses() + " ROUNDS");
         System.out.println("PLAYERS HAVE " + statistics.getDraws() + " DRAWS");
         System.out.println("GAME TAKES " + statistics.getRounds() + " ROUNDS\n");
         if (statistics.whoWins() == PLAYER) {
-            System.out.println(definition.getUsername() + " wins gratulations !!!");
+            System.out.println(definition.getUserName() + " wins gratulations !!!");
         } else if (statistics.whoWins() == ENEMY) {
             System.out.println("Computer wins gratulations !!!");
         } else {
-            System.out.println(definition.getUsername() + " and Computer have a draw !!!");
+            System.out.println(definition.getUserName() + " and Computer have a draw !!!");
         }
         System.out.println("\n#########################################################################################################################################\n");
     }
@@ -63,7 +62,7 @@ public class SimpleUserInterface implements UserInterface {
     @Override
     public void printRound(int number, GameDefinition definition, Statistics statistics) {
         System.out.println("ROUND: " + number);
-        System.out.println(definition.getUsername() + " WINS " + statistics.getWins() + " ROUNDS" + " | " + "Computer WINS " + statistics.getLoses() + " ROUNDS");
+        System.out.println(definition.getUserName() + " WINS " + statistics.getWins() + " ROUNDS" + " | " + "Computer WINS " + statistics.getLoses() + " ROUNDS");
         System.out.println("PLAYERS HAVE: " + statistics.getDraws() + " DRAWS");
         System.out.println("WE PLAY TO " + definition.getRounds() + " WINS !\n");
         System.out.println("############################################################### END ROUND ###############################################################\n");
@@ -116,7 +115,13 @@ public class SimpleUserInterface implements UserInterface {
     }
 
     private boolean isValidCharacter(char keyboardCharacter) {
-        return keyboardCharacter == '1' || keyboardCharacter == '2' || keyboardCharacter == '3' || keyboardCharacter == '4' || keyboardCharacter == '5' || keyboardCharacter == 'x' || keyboardCharacter == 'n';
+        return keyboardCharacter == '1' ||
+                keyboardCharacter == '2' ||
+                keyboardCharacter == '3' ||
+                keyboardCharacter == '4' ||
+                keyboardCharacter == '5' ||
+                keyboardCharacter == 'x' ||
+                keyboardCharacter == 'n';
     }
 
     @Override

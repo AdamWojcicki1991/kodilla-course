@@ -10,9 +10,9 @@ public enum Move {
     NEW(": NEW"),
     INVALID(": INVALID");
 
-    private String enumDescription;
+    private final String enumDescription;
 
-    Move(String enumDescription) {
+    Move(final String enumDescription) {
         this.enumDescription = enumDescription;
     }
 

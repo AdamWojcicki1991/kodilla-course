@@ -1,17 +1,16 @@
 package com.kodilla.rps.model;
 
-public class GameDefinition {
+public final class GameDefinition {
+    private final String userName;
+    private final int rounds;
 
-    private String username;
-    private int rounds;
-
-    public GameDefinition(String username, int rounds) {
-        this.username = username;
+    public GameDefinition(final String userName, final int rounds) {
+        this.userName = userName;
         this.rounds = rounds;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
     public int getRounds() {

@@ -5,11 +5,10 @@ import com.kodilla.rps.uix.UserInterface;
 
 import static com.kodilla.rps.model.GameResult.NEXT;
 
-public class GameRunner {
-
+public final class GameRunner {
     private final UserInterface userInterface;
 
-    public GameRunner(UserInterface userInterface) {
+    public GameRunner(final UserInterface userInterface) {
         this.userInterface = userInterface;
     }
 
@@ -18,8 +17,7 @@ public class GameRunner {
         GameResult gameResult = game.start();
 
         while (gameResult == NEXT) {
-            game = new Game(userInterface);
-            gameResult = game.start();
+            gameResult = new Game(userInterface).start();
         }
         userInterface.thankYou(game.getUsername());
     }
