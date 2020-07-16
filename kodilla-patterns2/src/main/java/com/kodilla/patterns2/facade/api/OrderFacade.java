@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 
 @Service
-public final class OrderFacade {
+public class OrderFacade {
     @Autowired
     private ShopService shopService;
     private static final Logger LOGGER = LoggerFactory.getLogger(OrderFacade.class);
