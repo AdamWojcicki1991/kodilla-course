@@ -2,13 +2,13 @@ package com.kodilla.patterns2.adapter.bookclasifier.librarya;
 
 import java.util.Objects;
 
-public class BookA {
+public class Book {
     private final String author;
     private final String title;
     private final int publicationYear;
     private final String signature;
 
-    public BookA(final String author, final String title, final int publicationYear, final String signature) {
+    public Book(final String author, final String title, final int publicationYear, final String signature) {
         this.author = author;
         this.title = title;
         this.publicationYear = publicationYear;
@@ -36,12 +36,12 @@ public class BookA {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BookA bookA = (BookA) o;
+        Book book = (Book) o;
 
-        return Objects.equals(author, bookA.author) &&
-                Objects.equals(title, bookA.title) &&
-                Objects.equals(publicationYear, bookA.publicationYear) &&
-                Objects.equals(signature, bookA.signature);
+        return Objects.equals(author, book.author) &&
+                Objects.equals(title, book.title) &&
+                Objects.equals(publicationYear, book.publicationYear) &&
+                Objects.equals(signature, book.signature);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class BookA {
 
     @Override
     public String toString() {
-        return "BookA{" +
+        return "Book{" +
                 "author='" + author + '\'' +
                 ", title='" + title + '\'' +
                 ", publicationYear=" + publicationYear +

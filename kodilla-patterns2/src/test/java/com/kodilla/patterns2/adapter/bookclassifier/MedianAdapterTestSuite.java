@@ -1,7 +1,7 @@
 package com.kodilla.patterns2.adapter.bookclassifier;
 
 import com.kodilla.patterns2.adapter.bookclasifier.MedianAdapter;
-import com.kodilla.patterns2.adapter.bookclasifier.librarya.BookA;
+import com.kodilla.patterns2.adapter.bookclasifier.librarya.Book;
 import org.junit.Test;
 
 import java.util.HashSet;
@@ -14,9 +14,9 @@ public class MedianAdapterTestSuite {
     @Test
     public void publicationYearMedianTest() {
         //Given
-        Set<BookA> books = new HashSet<>();
+        Set<Book> books = new HashSet<>();
         IntStream.range(0, 9).forEach(i -> {
-            books.add(new BookA("Author" + i, "Title" + i, 1991 + i, "Signature" + i));
+            books.add(new Book("Author" + i, "Title" + i, 1991 + i, "Signature" + i));
         });
         MedianAdapter medianAdapter = new MedianAdapter();
         //When

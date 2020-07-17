@@ -12,7 +12,7 @@ import static com.kodilla.rps.model.Winner.ENEMY;
 import static com.kodilla.rps.model.Winner.PLAYER;
 
 public class SimpleUserInterface implements UserInterface {
-    private static final Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
 
     @Override
     public void printMenu() {
@@ -95,7 +95,7 @@ public class SimpleUserInterface implements UserInterface {
     @Override
     public String getUserName() {
         System.out.println("Type player name and press ENTER: ");
-        return scanner.next();
+        return SCANNER.next();
     }
 
     @Override
@@ -104,7 +104,7 @@ public class SimpleUserInterface implements UserInterface {
         char keyboardCharacter = ' ';
         while (!errorConfirmed) {
             printValidCharacters();
-            keyboardCharacter = scanner.next().charAt(0);
+            keyboardCharacter = SCANNER.next().charAt(0);
             if (isValidCharacter(keyboardCharacter)) {
                 errorConfirmed = true;
             } else {
@@ -131,11 +131,11 @@ public class SimpleUserInterface implements UserInterface {
         while (!errorConfirmed) {
             try {
                 System.out.println("Type a number of wins and press ENTER: ");
-                result = scanner.nextInt();
-                scanner.nextLine();
+                result = SCANNER.nextInt();
+                SCANNER.nextLine();
                 errorConfirmed = true;
             } catch (InputMismatchException e) {
-                scanner.nextLine();
+                SCANNER.nextLine();
                 printErrorMessage();
             }
         }
@@ -149,7 +149,7 @@ public class SimpleUserInterface implements UserInterface {
         while (!errorConfirmed) {
             printShortMenu();
             printConfirmation("EXIT");
-            keyboardCharacter = scanner.next().charAt(0);
+            keyboardCharacter = SCANNER.next().charAt(0);
             if (keyboardCharacter == 'y' || keyboardCharacter == 'n') {
                 errorConfirmed = true;
             } else {
@@ -166,7 +166,7 @@ public class SimpleUserInterface implements UserInterface {
         while (!errorConfirmed) {
             printShortMenu();
             printConfirmation("NEW GAME");
-            keyboardCharacter = scanner.next().charAt(0);
+            keyboardCharacter = SCANNER.next().charAt(0);
             if (keyboardCharacter == 'y' || keyboardCharacter == 'n') {
                 errorConfirmed = true;
             } else {
